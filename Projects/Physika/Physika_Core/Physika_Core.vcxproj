@@ -77,6 +77,7 @@
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Matrices\matrix_base.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Utilities\global_config.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Utilities\math_constants.h" />
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Utilities\type_define.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Vectors\vector_2d.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Vectors\vector_3d.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Core\Vectors\vector_base.h" />

@@ -13,12 +13,22 @@
  */
 
 #include <iostream>
-#include "Physika_Core/Matrices/matrix_3x3.h"
+//#include "Physika_Core/Matrices/matrix_3x3.h"
+
+#include "Physika_Core/Utilities/type_define.h"
+#include "Physika_Geometry/Mesh/vertex.h"
+#include "Physika_Geometry/Mesh/triangle.h"
+#include "Physika_Geometry/Mesh/edge.h"
+#include "Physika_Geometry/Mesh/mesh.h"
+
 using namespace std;
 using Physika::Matrix3x3;
+using namespace Physika;
+
 
 int main()
 {
+
   cout<<"Matrix3x3 Test"<<endl;
   Matrix3x3<double> mat_double(3.0, 1.0,1.0,3.0,3,0,1.0,3.0,3.0);
   cout<<"A 3x3 matrix of double numbers:"<<endl;

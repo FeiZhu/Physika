@@ -61,7 +61,11 @@ std::ostream& operator<< (std::ostream &s, const Matrix3x3<Scalar> &mat)
   s<<mat(2,0)<<", "<<mat(2,1)<<", "<<mat(2,2)<<std::endl;
   return s;
 }
- 
+
+
+
 }  //end of namespace Physika
+
+
 
 #endif //PHYSIKA_CORE_MATRICES_MATRIX_3X3_H_

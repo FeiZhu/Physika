@@ -183,5 +183,6 @@ Scalar Matrix3x3<Scalar>::determinant() const
 //explicit instantiation of template so that it could be compiled into a lib
 template class Matrix3x3<float>;
 template class Matrix3x3<double>;
+//
 
 }  //end of namespace Physika

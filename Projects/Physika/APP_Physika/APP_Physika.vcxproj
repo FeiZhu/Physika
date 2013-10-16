@@ -47,7 +47,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Physika_Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Physika_Core.lib;Physika_Geometry.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\..\Public_Library\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

@@ -11,7 +11,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\edge.h" />
     <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\mesh.h" />
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\triangle.h" />
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\mesh.cpp" />

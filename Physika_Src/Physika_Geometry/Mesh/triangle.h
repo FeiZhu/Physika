@@ -1,6 +1,6 @@
 /*
- * @file mesh.h 
- * @Basic mesh class.
+ * @file triangle.h 
+ * @Basic triangle class.
  * @author Sheng Yang
  * 
  * This file is part of Physika, a versatile physics simulation library.
@@ -12,36 +12,26 @@
  *
  */
 
-#ifndef PHYSIKA_GEOMETRY_MESH_MESH_H_
-#define PHYSIKA_GEOMETRY_MESH_MESH_H_
+#ifndef PHYSIKA_GEOMETRY_MESH_TRIANGLE_H_
+#define PHYSIKA_GEOMETRY_MESH_TRIANGLE_H_
 
-#include <vector>
 #include "Physika_Core/Utilities/type_define.h"
-
-using namespace std;
 
 namespace Physika{
 
 class Vertex;
 class Edge;
-class Triangle;
 
-class Mesh
+class Triangle
 {
 public:
-	
-	Mesh();
-	~Mesh();
+	Vertex *v[3];
+	Edge *e[3];
+	Vector3f normal;
+	Vector3f center;
+	float area;
 
-
-	vector<Triangle*> triangles;
-	vector<Vertex*> vertices;
-	vector<Edge*> edges;
-	
-	Vector3f M;
-
-protected:
 };
 } //end of namespace Physika
 
-#endif //PHYSIKA_GEOMETRY_MESH_MESH_H_
+#endif //PHYSIKA_GEOMETRY_MESH_TRIANGLE_H_

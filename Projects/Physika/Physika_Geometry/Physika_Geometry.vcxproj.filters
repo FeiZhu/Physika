@@ -9,6 +9,15 @@
     <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\mesh.h">
       <Filter>Mesh</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\vertex.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\edge.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\triangle.h">
+      <Filter>Mesh</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Physika_Src\Physika_Geometry\Mesh\mesh.cpp">
