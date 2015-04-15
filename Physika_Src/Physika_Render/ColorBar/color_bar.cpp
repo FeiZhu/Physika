@@ -18,7 +18,7 @@ namespace Physika{
 
 template <typename Scalar>
 ColorBar<Scalar>::ColorBar()
-    :x_len_(3.0),y_len_(30.0),z_len_(2.0),start_point_(0)
+    :width_(20),height_(300),start_point_(10,70),enable_horizon_(false)
 {
 
 }
@@ -30,27 +30,21 @@ ColorBar<Scalar>::~ColorBar()
 }
 
 template <typename Scalar>
-const Vector<Scalar, 3> & ColorBar<Scalar>::startPoint() const
+const Vector<Scalar, 2> & ColorBar<Scalar>::startPoint() const
 {
     return this->start_point_;
 }
 
 template <typename Scalar>
-Scalar ColorBar<Scalar>::xLength() const
+unsigned int ColorBar<Scalar>::width() const
 {
-    return this->x_len_;
+    return this->width_;
 }
 
 template <typename Scalar>
-Scalar ColorBar<Scalar>::yLength() const
+unsigned int ColorBar<Scalar>::height() const
 {
-    return this->y_len_;
-}
-
-template <typename Scalar>
-Scalar ColorBar<Scalar>::zLength() const
-{
-    return this->z_len_;
+    return this->height_;
 }
 
 template <typename Scalar>
@@ -84,35 +78,46 @@ void ColorBar<Scalar>::setColorMapTypeAndSize(ColorMapType color_map_type, unsig
 }
 
 template <typename Scalar>
-void ColorBar<Scalar>::setStartPoint(const Vector<Scalar, 3> & start_point)
+void ColorBar<Scalar>::setStartPoint(const Vector<Scalar, 2> & start_point)
 {
     this->start_point_ = start_point;
 }
 
 template <typename Scalar>
-void ColorBar<Scalar>::setXLength(Scalar x_len)
+void ColorBar<Scalar>::setWidth(unsigned int width)
 {
-    this->x_len_ = x_len;
+    this->width_ = width;
 }
 
 template <typename Scalar>
-void ColorBar<Scalar>::setYLength(Scalar y_len)
+void ColorBar<Scalar>::setHeight(unsigned int height)
 {
-    this->y_len_ = y_len;
+    this->height_ = height;
 }
 
 template <typename Scalar>
-void ColorBar<Scalar>::setZLength(Scalar z_len)
+void ColorBar<Scalar>::setWidthAndHeight(unsigned int width, unsigned int height)
 {
-    this->z_len_ = z_len;
+    this->width_ = width;
+    this->height_ = height;
 }
 
 template <typename Scalar>
-void ColorBar<Scalar>::setLength(Scalar x_len, Scalar y_len, Scalar z_len)
+void ColorBar<Scalar>::enableHorizon()
 {
-    this->x_len_ = x_len;
-    this->y_len_ = y_len;
-    this->z_len_ = z_len;
+    this->enable_horizon_ = true;
+}
+
+template <typename Scalar>
+void ColorBar<Scalar>::disableHorizon()
+{
+    this->enable_horizon_ = false;
+}
+
+template <typename Scalar>
+bool ColorBar<Scalar>::isHorizon() const
+{
+    return this->enable_horizon_;
 }
 
 //explicit instantiations

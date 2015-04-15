@@ -12,8 +12,12 @@
  *
  */
 
+#include <GL/gl.h>
+#include "Physika_Dependency/OpenGL/GL/glext.h"
+#include <GL/freeglut.h>
+#include "Physika_Core/Utilities/physika_assert.h"
 #include "Physika_Render/OpenGL_Primitives/opengl_primitives.h"
-# include "Physika_Render/ColorBar_Render/color_bar_render.h"
+#include "Physika_Render/ColorBar_Render/color_bar_render.h"
 
 namespace Physika{
 
@@ -57,28 +61,66 @@ void ColorBarRender<Scalar>::setColorBar(ColorBar<Scalar> * color_bar)
 template <typename Scalar>
 void ColorBarRender<Scalar>::render()
 {
-    glPushAttrib(GL_LIGHTING_BIT|GL_POLYGON_BIT|GL_ENABLE_BIT|GL_TEXTURE_BIT);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // set polygon mode FILL for SOLID MODE
-    glDisable(GL_LIGHTING);                    // disable lighting to display the color
+    const Vector<Scalar, 2> & pos = color_bar_->startPoint();
+    
+    // undefined in lib or dll?
+    //glWindowPos2f(pos[0],pos[1]); 
 
+    glMatrixMode(GL_PROJECTION);
     glPushMatrix();
-    const ColorMap<Scalar> & color_map = this->color_bar_->colorMap();
-    unsigned int color_map_size = color_map.colorMapSize();
+    glLoadIdentity();
+    unsigned int win_width = glutGet(GLUT_WINDOW_WIDTH);
+    unsigned int win_height = glutGet(GLUT_WINDOW_HEIGHT);
+    gluOrtho2D(0.0, (GLfloat)win_width, 0.0, (GLfloat)win_height);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
-    Scalar dx = this->color_bar_->xLength();
-    Scalar dy = this->color_bar_->yLength()/color_map_size;
-    Scalar dz = -this->color_bar_->zLength();
+    glRasterPos2f(pos[0], pos[1]);
 
-    for (unsigned int i=0 ; i<color_map_size; i++)
+    unsigned int width = color_bar_->width();
+    unsigned int height = color_bar_->height();
+    float * pixels = new float[width*height*3];
+    PHYSIKA_ASSERT(pixels);
+    const ColorMap<Scalar> & color_map = color_bar_->colorMap();
+    if (color_bar_->isHorizon() == false)
     {
-        Vector<Scalar, 3> start_pos = this->color_bar_->startPoint();
-        start_pos[1] += i*dy;
-        Color<Scalar> color = color_map.colorViaIndex(i);
-        this->drawBox(start_pos, dx, dy, dz, color);
+        for (unsigned int i=0; i<height; i++)
+        {
+            const Color<Scalar> & color = color_map.colorViaRatio(static_cast<Scalar>(i)/height);
+            Scalar r = color.redChannel();
+            Scalar g = color.greenChannel();
+            Scalar b = color.blueChannel();
+            for (unsigned int j=0; j<width; j++)
+            {
+                pixels[(i*width+j)*3] = r;
+                pixels[(i*width+j)*3+1] = g;
+                pixels[(i*width+j)*3+2] = b;
+            }
+        }
+        glDrawPixels(width, height, GL_RGB, GL_FLOAT, pixels);
     }
-
+    else
+    {
+        for (unsigned int i=0; i<height; i++)
+        {
+            const Color<Scalar> & color = color_map.colorViaRatio(static_cast<Scalar>(i)/height);
+            Scalar r = color.redChannel();
+            Scalar g = color.greenChannel();
+            Scalar b = color.blueChannel();
+            for (unsigned int j=0; j<width; j++)
+            {
+                pixels[(j*height+i)*3] = r;
+                pixels[(j*height+i)*3+1] = g;
+                pixels[(j*height+i)*3+2] = b;
+            }
+        }
+        glDrawPixels(height, width, GL_RGB, GL_FLOAT, pixels);
+    }
     glPopMatrix();
-    glPopAttrib();
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
+
+    delete [] pixels;
 }
 
 template <typename Scalar>

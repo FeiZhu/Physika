@@ -16,7 +16,7 @@
 #define PHYSIKA_RENDER_COLORBAR_COLOR_BAR_H_
 
 #include "Physika_Render/ColorBar/ColorMap/color_map.h"
-#include "Physika_Core/Vectors/vector_3d.h"
+#include "Physika_Core/Vectors/vector_2d.h"
 
 namespace Physika{
 
@@ -28,10 +28,9 @@ public:
     ~ColorBar();
 
     //getter
-    const Vector<Scalar, 3> & startPoint() const;
-    Scalar xLength() const;
-    Scalar yLength() const;
-    Scalar zLength() const;
+    const Vector<Scalar, 2> & startPoint() const;
+    unsigned int width() const;
+    unsigned int height() const;
     const ColorMap<Scalar> & colorMap() const;
 
     //setter
@@ -39,18 +38,22 @@ public:
     void setColorMapSize(unsigned int color_size);
     void setColorMapType(ColorMapType color_map_type);
     void setColorMapTypeAndSize(ColorMapType color_map_type, unsigned int color_size);
-    void setStartPoint(const Vector<Scalar, 3> & start_point);
-    void setXLength(Scalar x_len);
-    void setYLength(Scalar y_len);
-    void setZLength(Scalar z_len);
-    void setLength(Scalar x_len, Scalar y_len, Scalar z_len);
+    void setStartPoint(const Vector<Scalar, 2> & start_point);
+    void setWidth(unsigned int width); // in the unit of pixels
+    void setHeight(unsigned int height); // in the unit of pixels
+    void setWidthAndHeight(unsigned int width, unsigned int height);
+
+    void enableHorizon();  //put the colorbar horizontally
+    void disableHorizon();
+    bool isHorizon() const;
+
 
 protected:
     ColorMap<Scalar> color_map_;
-    Vector<Scalar,3> start_point_; // left bottom corner
-    Scalar x_len_;
-    Scalar y_len_;
-    Scalar z_len_;
+    Vector<Scalar,2> start_point_; // left bottom corner
+    unsigned int width_;  // in the unit of pixels
+    unsigned int height_; // in the unit of pixels
+    bool enable_horizon_;  //whether to put the colorbar horizontally, default: false
 };
 
 
