@@ -201,7 +201,7 @@ Vector<Scalar,1>& Vector<Scalar,1>::operator/= (Scalar scale)
 template <typename Scalar>
 Scalar Vector<Scalar,1>::norm() const
 {
-    return (*this)[0];
+    return abs((*this)[0]);
 }
 
 template <typename Scalar>
