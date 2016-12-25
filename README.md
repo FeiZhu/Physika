@@ -1,16 +1,9 @@
 **Physika**
 
-A physics simulation library that a couple of guys and I plan to develop.
-
-@authors:
-Fei Zhu, 
-Sheng Yang, 
-Tianxiang Zhang,
-Wei Chen,
-Liyou Xu,
+Physika is a versatile C/C++ physics library. It was started as a personal project of [Fei Zhu](http://feizhu.github.io), then joined by four other students ([Sheng Yang](https://github.com/Vovery), [Tianxiang Zhang](https://github.com/TianxiangZhang), [Wei Chen](https://github.com/suitmyself), [Liyou Xu](https://github.com/MikeXuPku)) at the Graphics Lab of Peking University. Since July 2015, Physika is separately developed by Fei and the students at PKU. This repository is Fei's personal version mantained by himself, while the PKU version of Physika is maintained by the [PhysikaTeam](https://github.com/PhysikaTeam) at PKU led by  [Wei Chen](https://github.com/suitmyself).
 
 @Last update of this file:
-Fei Zhu, 05/10/2014
+Fei Zhu, 12/24/2016
 
 =============================================================
 
