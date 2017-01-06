@@ -241,7 +241,7 @@ Scalar SquareMatrix<Scalar,1>::doubleContraction(const SquareMatrix<Scalar,1> &m
 template <typename Scalar>
 Scalar SquareMatrix<Scalar,1>::frobeniusNorm() const
 {
-    return (*this)(0,0);
+    return abs((*this)(0,0));
 }
 
 template <typename Scalar>
