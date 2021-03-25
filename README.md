@@ -1,3 +1,7 @@
+This project is archived and won't be maintained anymore. The authors will be devoted to the new version [PhysIKA](https://github.com/PhysikaTeam/PhysIKA).
+
+=============================================================
+
 **Physika**
 
 Physika is a versatile C/C++ physics library. It was started as a personal project of [Fei Zhu](http://feizhu.github.io), then joined by four other students ([Sheng Yang](https://github.com/Vovery), [Tianxiang Zhang](https://github.com/TianxiangZhang), [Wei Chen](https://github.com/suitmyself), [Liyou Xu](https://github.com/MikeXuPku)) at the Graphics Lab of Peking University. Since July 2015, Physika is separately developed by Fei and the students at PKU. This repository is Fei's personal version mantained by himself, while the PKU version of Physika is maintained by the [PhysikaTeam](https://github.com/PhysikaTeam) at PKU led by  [Wei Chen](https://github.com/suitmyself).
